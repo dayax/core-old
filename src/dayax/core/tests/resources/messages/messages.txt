@@ -1,0 +1,4 @@
+foo = bar
+foo.bar = foo {0} bar {1}
+invalid_argument_exception=Invalid Argument Exception Message
+logic_exception = Logic Exception Message

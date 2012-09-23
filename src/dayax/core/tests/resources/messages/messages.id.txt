@@ -1,0 +1,2 @@
+foo = translated foo 
+invalid_argument_exception = Invalid Argument Exception Message

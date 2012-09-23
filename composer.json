@@ -1,0 +1,22 @@
+{
+    "name": "dayax/core",
+    "version": "1.0.0-dev",
+    "license":"MIT",
+    "authors":[
+        {
+            "name":"Anthonius Munthi",
+            "email": "toni.dayak@gmail.com",
+            "homepage":"http://itstoni.com",
+            "role":"Developer"
+        }        
+    ],
+    "description":"dayax core package",
+    "require": {
+        "php": ">=5.3.3"
+    },
+    "autoload":{
+        "psr-0": { 
+            "dayax": "src/"
+        }
+    }
+}
