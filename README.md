@@ -1,0 +1,4 @@
+core
+====
+
+dayax core package
