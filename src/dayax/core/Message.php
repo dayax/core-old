@@ -111,14 +111,19 @@ EOC;
         $default = __DIR__ . '/resources/messages';        
         // try to found foo\bar\resource or foo\resource first
         if (isset($caller['object']) || is_object($caller['class'])) {
-            $r = isset($caller['object']) ? new \ReflectionClass($caller['object']):new \ReflectionClass($caller['class']);
-                        
-            //$baseDir = dirname($r->getFileName());                                                            
+            $r = isset($caller['object']) ? new \ReflectionClass($caller['object']):new \ReflectionClass($caller['class']);                                    
             
-            $baseDir = Dayax::getPathOfNamespace($r->getNamespaceName());
-            if (is_dir($path = $baseDir . '/resources/messages')) { 
-                return realpath($path);
-            }
+            //try namespace\class first
+            $exp = explode("\\",$r->getNamespaceName());
+            $c = count($exp);            
+            for($i=0;$i<$c;$i++){
+                
+                $path = Dayax::getPathOfNamespace(implode("\\",$exp)).'/resources/messages';
+                if(is_dir($path)){
+                    return $path;
+                }
+                array_pop($exp);
+            }            
             
             $baseDir = dirname($r->getFileName());
             if (is_dir($path = $baseDir . '/resources/messages')) { 

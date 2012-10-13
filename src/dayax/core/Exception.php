@@ -68,7 +68,6 @@ class Exception extends \Exception {
         $exception = substr($class, $pos + 1);
         $namespace = substr($class, 0, $pos);
         $extends = in_array($exception, self::$_splClasses) ? '\\' . $exception : "\\Exception";
-        //$extends = "\\Exception";
         $tpl = <<<EOC
 
     namespace $namespace{

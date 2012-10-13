@@ -38,7 +38,6 @@ class ExceptionTest extends TestCase
         
     }
 
-
     /**
      * 
      * @expectedException           InvalidArgumentException
@@ -55,5 +54,10 @@ class ExceptionTest extends TestCase
     public function testThrowLogicException()
     {
         throw new LogicException('logic_exception');
+    }
+    
+    public function testSetExtends()
+    {
+        $this->markTestIncomplete();
     }
 }
