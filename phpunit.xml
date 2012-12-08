@@ -13,7 +13,7 @@
          verbose="true"
 >
     <testsuites>
-        <testsuite name="Dayax">
+        <testsuite name="Dayax-Core">
             <directory suffix="Test.php">./src/dayax/core/tests</directory>
         </testsuite>
     </testsuites>
