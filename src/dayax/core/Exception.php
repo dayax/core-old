@@ -31,9 +31,9 @@ class Exception extends \Exception {
     }
 
     static public function registerAutoload() {
-        $autoloads = spl_autoload_functions();
+        $autoloads = spl_autoload_functions();        
         $callback = array('dayax\core\Exception', 'loadClass');
-        if (!@in_array($callback, $autoloads)) {
+        if (!in_array($callback, $autoloads)) {
             spl_autoload_register($callback);
         }
     }

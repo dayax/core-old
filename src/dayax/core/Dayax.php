@@ -13,8 +13,9 @@ namespace dayax\core;
 class Dayax
 {    
 
-    static private  $_cacheDir;
-
+    static private $_cacheDir;
+    static private $loader;
+    
     static public function getVendorDir()
     {
         return realpath(__DIR__.'/../../../vendors');
@@ -92,6 +93,11 @@ class Dayax
      */
     static public function getLoader()
     {                
-        return \ComposerAutoloaderInit::getLoader();     
+        return self::$loader;     
+    }
+    
+    static public function setLoader($loader)
+    {
+        self::$loader = $loader;
     }
 }
