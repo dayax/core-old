@@ -24,8 +24,8 @@ class Exception extends \Exception {
     static private $_packages = array(
         'dayax',
     );
-
-    public function __construct() {
+    
+    public function __construct() {        
         $message = Message::translateMessage(func_get_args());        
         parent::__construct($message);
     }
@@ -85,5 +85,5 @@ EOC;
         
         eval($tpl);        
     }
-
+    
 }
