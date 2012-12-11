@@ -23,17 +23,18 @@ class Exception extends \Exception {
     static private $_splClasses = null;
     static private $_packages = array(
         'dayax',
-    );
-    
+    );                
+
     private $message_code = null;
-    
-    public function __construct() {
+
+    public function __construct()
+    {
         $args = func_get_args();
         $this->message_code = $args[0];
-        $message = Message::translateMessage(func_get_args());        
+        $message = Message::translateMessage(func_get_args());
         parent::__construct($message);
     }
-
+    
     static public function registerAutoload() {
         $autoloads = spl_autoload_functions();        
         $callback = array('dayax\core\Exception', 'loadClass');
@@ -71,17 +72,26 @@ class Exception extends \Exception {
         $pos = strrpos($class, '\\');
         $exception = substr($class, $pos + 1);
         $namespace = substr($class, 0, $pos);
-        $extends = in_array($exception, self::$_splClasses) ? '\\' . $exception : "\\Exception";
+        $extends = "Exception";        
         $tpl = <<<EOC
 
     namespace $namespace{
     use dayax\core\Message;
+    use dayax\core\Exception;
     class $exception extends $extends
     {
+        private \$message_code = null;
         public function __construct()
         {
-            \$message = Message::translateMessage(func_get_args());            
+            \$args = func_get_args();        
+            \$this->message_code = \$args[0];
+            \$message = Message::translateMessage(func_get_args());        
             parent::__construct(\$message);
+        }
+        
+        public function getMessageCode()
+        {
+            return \$this->message_code;
         }
     }
     }//end of namespace;

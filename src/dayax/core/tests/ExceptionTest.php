@@ -45,23 +45,6 @@ class ExceptionTest extends TestCase
         $this->assertTrue(class_exists('dayax\core\tests\InvalidArgumentException'));
         
     }
-
-    /**
-     * @expectedException          InvalidArgumentException
-     * @expectedExceptionMessage   Invalid Argument Exception Message
-     */
-    public function testThrowInvalidArgumentException()
-    {
-        throw new InvalidArgumentException('invalid_argument_exception');
-    }
-
-    /**
-     * @expectedException           LogicException
-     */
-    public function testThrowLogicException()
-    {
-        throw new LogicException('logic_exception');
-    }
     
     /**
      * @dataProvider    getTestExternalMessage
