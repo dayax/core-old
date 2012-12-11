@@ -18,6 +18,7 @@ class DayaxTest extends TestCase
     
     public function testGetLoader()
     {
+        
         $this->assertTrue(is_object(Dayax::getLoader()));
     }
     

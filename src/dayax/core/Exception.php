@@ -25,7 +25,11 @@ class Exception extends \Exception {
         'dayax',
     );
     
-    public function __construct() {        
+    private $message_code = null;
+    
+    public function __construct() {
+        $args = func_get_args();
+        $this->message_code = $args[0];
         $message = Message::translateMessage(func_get_args());        
         parent::__construct($message);
     }
@@ -84,6 +88,11 @@ class Exception extends \Exception {
 EOC;
         
         eval($tpl);        
+    }
+        
+    public function getMessageCode()
+    {
+        return $this->message_code;
     }
     
 }
