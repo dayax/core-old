@@ -23,7 +23,7 @@ class ComponentTest extends TestCase
 {
     public function testSet()
     {
-        $this->markTestIncomplete();
+        //$this->markTestIncomplete();
     }
 
 }

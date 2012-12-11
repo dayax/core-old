@@ -77,10 +77,10 @@ class MessageTest extends TestCase
         Dayax::getLoader()->add('foo', array(__DIR__.'/resources/sources'));
         
         $foo = new \foo\Foo();
-        $this->assertEquals('Foo',$foo->getMessage());
+        $this->assertEquals('foo',$foo->getMessage());
 
         $bar = new \foo\bar\Bar();
-        $this->assertEquals('Bar',$bar->getMessage());
+        $this->assertEquals('bar',$bar->getMessage());
 
         $world = new \foo\bar\hello\World();
         //print_r(Dayax::getLoader()->findFile(get_class($world)));

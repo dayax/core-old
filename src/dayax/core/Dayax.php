@@ -72,12 +72,12 @@ class Dayax
         $ns = substr($namespace, 0, $pos);
         $class = substr($namespace, $pos + 1);
         
-        $prefixes = self::getLoader()->getPrefixes();
+        $prefixes = self::getLoader()->getPrefixes();        
         foreach ($prefixes as $package => $paths) {
             if (false !== strpos($ns, $package)) {
                 foreach ($paths as $path) {                    
-                    $dir = $path . $ns . DIRECTORY_SEPARATOR . $class;                    
-                    $dir = str_replace("\\", DIRECTORY_SEPARATOR, $dir);
+                    $dir = $path.DIRECTORY_SEPARATOR . $ns . DIRECTORY_SEPARATOR . $class;                    
+                    $dir = str_replace("\\", DIRECTORY_SEPARATOR, $dir);                    
                     if (is_file($file = $dir . '.php')) {
                         return $file;
                     } elseif (is_dir($dir)) {
@@ -89,7 +89,7 @@ class Dayax
     }
     
     /**     
-     * @return \ComposerAutoloaderInit
+     * @return \Composer\Autoload\ClassLoader
      */
     static public function getLoader()
     {                

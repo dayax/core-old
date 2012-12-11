@@ -1,0 +1,2 @@
+foo_hello = foo hello exception
+foo_hello_hello = foo hello hello exception

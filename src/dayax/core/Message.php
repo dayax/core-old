@@ -114,12 +114,13 @@ EOC;
             $r = isset($caller['object']) ? new \ReflectionClass($caller['object']):new \ReflectionClass($caller['class']);                                    
             
             //try namespace\class first
-            $exp = explode("\\",$r->getNamespaceName());
-            $c = count($exp);            
-            for($i=0;$i<$c;$i++){
+            $exp = explode("\\",$r->getNamespaceName());            
+            $c = count($exp);        
+            for($i=0;$i<$c;$i++){                
+                //echo implode("\\",$exp).'\\resources\\messages'."\n";
+                $path = Dayax::getPathOfNamespace(implode("\\",$exp).'\\resources\\messages');
                 
-                $path = Dayax::getPathOfNamespace(implode("\\",$exp)).'/resources/messages';
-                if(is_dir($path)){
+                if(is_dir($path)){                    
                     return $path;
                 }
                 array_pop($exp);
