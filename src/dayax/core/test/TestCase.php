@@ -10,7 +10,7 @@
  */
 
 namespace dayax\core\test;
-
+require_once __DIR__.'/ExceptionCode.php';
 /**
  * TestCase Class.
  *
@@ -51,5 +51,6 @@ class TestCase extends \PHPUnit_Framework_TestCase
                 unlink($file);
             }
         }
-    }
+    }    
+    
 }
